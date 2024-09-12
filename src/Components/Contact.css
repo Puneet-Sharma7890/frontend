@@ -1,0 +1,48 @@
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 3rem;
+}
+p {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+body {
+  background-color: #f7f7f7;
+  font-family: "Arial", sans-serif;
+}
+.icon {
+  color:#1E90FF;
+}
+
+.icon:hover {
+  color: darkblue;
+}
+
+a {
+  color: #1E90FF;
+  text-decoration: none;
+}
+
+a:hover {
+  color: darkblue;
+}
+.inputs {
+  width: 100%; /* Adjust width as needed */
+  height: 40px; /* Adjust height as needed */
+  padding: 0 10px; /* Optional: add padding inside the input */
+  border: 1px solid #ccc; /* Optional: border styling */
+  border-radius: 4px; /* Optional: rounded corners */
+  box-sizing: border-box; /* Ensures padding and border are included in the width and height */
+}
+
+.labels {
+  display: block; /* Ensures labels are on a new line */
+  margin-bottom: 5px; /* Space between label and input */
+}
+
+span{
+  font-size: 20px;
+}
