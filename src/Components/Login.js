@@ -50,7 +50,7 @@ export function Login() {
     }
 
     try {
-      const response = await fetch("http://localhost:8001/api/login", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -67,7 +67,7 @@ export function Login() {
         // Save the role in local storage
         localStorage.setItem("token", data.user);
         localStorage.setItem("role", role); // Save the role (user or admin)
-
+        console.log(data.user)
         alert("Login successful");
 
         // Navigate based on the role

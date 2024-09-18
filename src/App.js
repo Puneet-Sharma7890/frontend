@@ -1,7 +1,6 @@
-// src/App.js
 import "./App.css";
-import React, { Suspense, lazy, useEffect, useState } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import React, { Suspense, lazy } from "react";
+import { Route, Routes, } from "react-router-dom";
 import { Nav1 } from "./Components/Navbar1";
 import { Chardhamhistory } from "./Components/Chardhamhistory";
 import { Family } from "./Components/Family";
@@ -26,19 +25,19 @@ const Tours = lazy(() => import("./Components/Tours"));
 const Booking = lazy(() => import("./Components/Booking"));
 
 function App() {
-  const [role, setRole] = useState(null);
-  const navigate = useNavigate();
+  // const [role, setRole] = useState(null);
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    // Check the user's role from localStorage
-    const savedRole = localStorage.getItem("role");
-    setRole(savedRole);
+  // useEffect(() => {
+  //   // Check the user's role from localStorage
+  //   const savedRole = localStorage.getItem("role");
+  //   setRole(savedRole);
 
-    // Redirect to login if no role is found
-    if (!savedRole) {
-      navigate("/login");
-    }
-  }, [navigate]);
+  //   // Redirect to login if no role is found
+  //   if (!savedRole && window.location.pathname !== '/login') {
+  //     navigate("/tour");
+  //   }
+  // }, [navigate]);
 
   return (
     <>
@@ -54,6 +53,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/tours" element={<Tours />} />
           <Route path="/cultural" element={<Cultural />} />
+          
           <Route path="/family-tours" element={<Family />} />
           <Route path="/pilgrimage-tours" element={<Pilgrimage />} />
           <Route path="/register" element={<Register />} />
@@ -61,17 +61,13 @@ function App() {
           <Route path="/payment" element={<Payment />} />
           <Route path="/success" element={<Success />} />
           {/* Conditionally render Admin route only for admin role */}
-          {role === "admin" && (
-            <Route path="/admin" element={<AdminDashboard />}></Route>
-          )}
-          {role === "admin" && (
-            <Route path="/admin/user-details" element={<UserDetails />} />
-          )}
-          {role === "admin" && (
-            <Route path="/admin/booking" element={<BookingDetails />} />
-          )}{" "}
-          {role === "admin" && (
-            <Route path="/admin/contact-details" element={<ContactDetails />} />
+          {(
+            <>
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/admin/user-details" element={<UserDetails />} />
+              <Route path="/admin/booking" element={<BookingDetails />} />
+              <Route path="/admin/contact-details" element={<ContactDetails />} />
+            </>
           )}
         </Routes>
       </Suspense>

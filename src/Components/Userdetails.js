@@ -10,7 +10,7 @@ const UserDetails = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:8001/api/usersdetails'); // Adjust the URL if needed
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/usersdetails`);
         setUsers(response.data); // Set the fetched users to state
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -24,6 +24,7 @@ const UserDetails = () => {
     <Container fluid>
       <Row>
         <Col md={2} className="d-none d-md-block"> {/* Hide sidebar on small screens */}
+        
           <AdminDashboard />
         </Col>
         <Col md={10}>

@@ -139,10 +139,11 @@ function Tours() {
 
       // Send the token to the API endpoint
       const sendResponse = await axios.post(
-        "http://localhost:8001/api/checktoken",
+        `${process.env.REACT_APP_API_URL}/api/checktoken`,
         { tokenId }
       );
-
+      
+      console.log('send response',sendResponse);
       if (sendResponse.status === 200) {
         console.log("Token successfully sent to backend");
         navigate("/payment");

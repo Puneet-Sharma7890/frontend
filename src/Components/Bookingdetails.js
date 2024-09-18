@@ -10,7 +10,7 @@ const BookingDetails = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:8001/api/bookingdetails'); // Adjust the URL if needed
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/bookingdetails`);
         setUsers(response.data); // Set the fetched users to state
       } catch (error) {
         console.error('Error fetching users:', error);

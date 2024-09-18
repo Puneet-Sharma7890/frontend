@@ -8,8 +8,8 @@ export function Success() {
 
   useEffect(() => {
     // Fetch total price from the server
-    axios.get("http://localhost:8001/api/totalprice")
-      .then(response => {
+    axios.get(`${process.env.REACT_APP_API_URL}/api/totalprice`)
+    .then(response => {
         setTotalPrice(response.data.totalprice);
       })
       .catch(error => {

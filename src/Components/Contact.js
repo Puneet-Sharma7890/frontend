@@ -34,10 +34,8 @@ function Contact() {
     e.preventDefault();
     try {
       // Await the axios call to ensure data is sent correctly
-      const response = await axios.post(
-        "http://localhost:8001/api/contact",
-        formData
-      );
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/contact`, formData);
+
 
       // Success message
       alert("Form submitted successfully!");

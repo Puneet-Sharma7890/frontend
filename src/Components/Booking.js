@@ -39,7 +39,7 @@ const Booking = () => {
 
     setLoading(true); // Set loading to true when fetching starts
     try {
-      const response = await axios.get("http://localhost:8001/api/getbooking"); // Ensure correct URL
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/getbooking`);
       if (response.data && response.data.length > 0) {
         // Filter bookings for the input email
         const filteredBookings = response.data.filter(
